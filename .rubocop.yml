@@ -1,0 +1,9 @@
+AllCops:
+  Includes:
+  Excludes:
+Documentation:
+  Enabled: false
+Style/FrozenStringLiteralComment:
+  Enabled: false
+Gemspec/RequiredRubyVersion:
+  Enabled: false
