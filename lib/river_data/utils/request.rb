@@ -6,7 +6,7 @@ module RiverData
     def make_request(params)
       JSON.parse(
         Faraday.get(
-          "https://waterservices.usgs.gov/nwis/iv/?format=json#{params}"
+          "https://waterservices.usgs.gov/nwis/iv/?format=json&#{params}"
         ).body
       )
     end
