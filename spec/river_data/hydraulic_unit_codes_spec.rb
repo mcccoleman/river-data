@@ -1,10 +1,10 @@
 require 'river_data'
 
-RSpec.describe RiverData::HydrolicUnitCodes do
-  context 'when a hydrolic unit code is passed in is passed in' do
+RSpec.describe RiverData::HydraulicUnitCodes do
+  context 'when a hydraulic unit code is passed in is passed in' do
     response = described_class.find(['02070010'])
 
-    it 'returns the rivers at that hydrolic unit code' do
+    it 'returns the rivers at that hydraulic unit code' do
       expect(response['value']['timeSeries']).to_not eq(0)
     end
     it 'returns a name field' do
