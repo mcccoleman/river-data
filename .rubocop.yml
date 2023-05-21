@@ -7,3 +7,5 @@ Style/FrozenStringLiteralComment:
   Enabled: false
 Gemspec/RequiredRubyVersion:
   Enabled: false
+Metrics/BlockLength:
+  Enabled: false
