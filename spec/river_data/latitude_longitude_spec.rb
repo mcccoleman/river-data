@@ -1,6 +1,17 @@
 require 'river_data'
+require 'pry'
 
 RSpec.describe RiverData::LatitudeLongitude do
+  context 'when invalid coordinates are passed in' do
+    response = described_class.find(-80.000000, 36.500000, -81.000000, 38.500000)
+
+    it 'returns the error code status' do
+      expect(response[:status]).to eq(400)
+    end
+    it 'returns the message' do
+      expect(response[:message]).to_not eq(nil)
+    end
+  end
   context 'when coordinates are passed in' do
     response = described_class.find(-83.000000, 36.500000, -81.000000, 38.500000)
 

@@ -1,6 +1,16 @@
 require 'river_data'
 
 RSpec.describe RiverData::Sites do
+  context 'when invalid site is passed in' do
+    response = described_class.find(['001646500q3rwer'])
+
+    it 'returns the error code status' do
+      expect(response[:status]).to eq(400)
+    end
+    it 'returns the message' do
+      expect(response[:message]).to_not eq(nil)
+    end
+  end
   context 'when a site is passed in' do
     response = described_class.find(['001646500'])
 

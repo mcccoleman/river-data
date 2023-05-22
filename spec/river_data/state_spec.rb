@@ -58,6 +58,16 @@ states = %w[
   WY
 ]
 RSpec.describe RiverData::State do
+  context 'when invalid state is passed in' do
+    response = described_class.find('random')
+
+    it 'returns the error code status' do
+      expect(response[:status]).to eq(400)
+    end
+    it 'returns the message' do
+      expect(response[:message]).to_not eq(nil)
+    end
+  end
   states.each do |state_code|
     context "when #{state_code} is passed in" do
       response = described_class.find(state_code)
