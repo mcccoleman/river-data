@@ -1,6 +1,16 @@
 require 'river_data'
 
 RSpec.describe RiverData::Counties do
+  context 'when invalid county codes are passed in' do
+    response = described_class.find(['510242359'])
+
+    it 'returns the error code status' do
+      expect(response[:status]).to eq(400)
+    end
+    it 'returns the message' do
+      expect(response[:message]).to_not eq(nil)
+    end
+  end
   context 'when a county code is passed in' do
     response = described_class.find(['51059'])
 
