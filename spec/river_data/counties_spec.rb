@@ -1,10 +1,10 @@
 require 'river_data'
 
-RSpec.describe RiverData::Sites do
-  context 'when a site is passed in' do
-    response = described_class.find(['001646500'])
+RSpec.describe RiverData::Counties do
+  context 'when a county code is passed in' do
+    response = described_class.find(['51059'])
 
-    it 'returns the rivers at that site' do
+    it 'returns the rivers in that county' do
       expect(response['value']['timeSeries']).to_not eq(0)
     end
     it 'returns a name field' do
@@ -17,10 +17,10 @@ RSpec.describe RiverData::Sites do
       expect(response['scope']).to eq('javax.xml.bind.JAXBElement$GlobalScope')
     end
   end
-  context 'when multiple sites are passed' do
-    response = described_class.find(%w[01646500 02342500])
+  context 'when multiple counties are passed in' do
+    response = described_class.find(%w[51059,51061])
 
-    it 'returns the rivers at those sites' do
+    it 'returns the rivers at those counties' do
       expect(response['value']['timeSeries']).to_not eq(0)
     end
     it 'returns a name field' do
