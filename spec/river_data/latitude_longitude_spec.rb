@@ -1,5 +1,4 @@
 require 'river_data'
-require 'pry'
 
 RSpec.describe RiverData::LatitudeLongitude do
   context 'when invalid coordinates are passed in' do
