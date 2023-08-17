@@ -1,6 +1,11 @@
 require_relative 'lib/river_data'
 require 'sinatra'
 require 'pry'
+require 'sinatra/cross_origin'
+
+configure do
+  enable :cross_origin
+end
 
 get '/state/:code' do
   state_code = params[:code]
