@@ -7,6 +7,10 @@ configure do
   enable :cross_origin
 end
 
+options '/state/:code' do
+  200
+end
+
 get '/state/:code' do
   state_code = params[:code]
 
